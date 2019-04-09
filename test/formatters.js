@@ -118,10 +118,15 @@ describe('Answer strings', function() {
   });
 
 });
-/*
-describe('Min Number Formatter', function() {
-  it('Returns 0 for everything except int (signed)', function() {
-    expect(rc_question.minNumber().to.equal(true);
+
+describe('Kleros parsing case', function() {
+  it('Parses properly', function() {
+     var questionString = 'Does this question work?␟"Yes","No","Maybe So"␟news-politics␟en_US';
+     var template = "{\"title\": \"%s\", \"type\": \"single-select\", \"outcomes\": [%s], \"category\": \"%s\", \"lang\": \"%s\"}";
+     console.log(template)
+     var questionData = rc_question.populatedJSONForTemplate(template, questionString);
+     expect(questionData['title']).to.equal('Does this question work?');
+     expect(questionData['outcomes'][0]).to.equal('Yes');
+     expect(questionData['outcomes'][1]).to.equal('No');
   });
 });
-*/
